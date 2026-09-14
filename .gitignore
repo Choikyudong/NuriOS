@@ -1,0 +1,27 @@
+# 환경변수 (민감정보 포함, 절대 커밋 금지)
+.env
+
+# Go 빌드 산출물
+/bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# 테스트 관련
+*.test
+*.out
+
+# Go workspace 파일
+go.work
+go.work.sum
+
+# IDE / 에디터
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
