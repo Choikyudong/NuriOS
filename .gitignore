@@ -1,5 +1,6 @@
 # 환경변수 (민감정보 포함, 절대 커밋 금지)
 .env
+.env.*
 
 # Go 빌드 산출물
 /bin/
@@ -9,13 +10,19 @@
 *.so
 *.dylib
 
-# 테스트 관련
+# Go 테스트 관련
 *.test
 *.out
 
 # Go workspace 파일
 go.work
 go.work.sum
+
+# 프론트엔드 (Node/React/Vite) 관련
+node_modules/
+dist/
+dist-ssr/
+.vite/
 
 # IDE / 에디터
 .vscode/
@@ -25,3 +32,6 @@ go.work.sum
 # OS
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
