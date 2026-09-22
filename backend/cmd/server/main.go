@@ -9,7 +9,7 @@ import (
 	"github.com/Choikyudong/NuriOS/internal/auth"
 	"github.com/Choikyudong/NuriOS/internal/config"
 	"github.com/Choikyudong/NuriOS/internal/db"
-	"github.com/Choikyudong/NuriOS/internal/todo"
+	"github.com/Choikyudong/NuriOS/internal/todos"
 	"github.com/joho/godotenv"
 )
 
@@ -37,9 +37,9 @@ func main() {
 	mux.HandleFunc("POST /auth/signup", authHandler.Signup)
 	mux.HandleFunc("POST /auth/login", authHandler.Login)
 
-	todoRepo := todo.NewRepository(pool)
-	todoService := todo.NewService(todoRepo)
-	todoHandler := todo.NewHandler(todoService)
+	todoRepo := todos.NewRepository(pool)
+	todoService := todos.NewService(todoRepo)
+	todoHandler := todos.NewHandler(todoService)
 
 	mux.HandleFunc("GET /todos", jwtManager.RequireAuth(todoHandler.List))
 	mux.HandleFunc("POST /todos", jwtManager.RequireAuth(todoHandler.Create))
